@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::resource('data_barang', 'BarangController');
 
+Route::resource('front', 'FrontController');
+
 Route::get('layouts',function(){
     return view('layouts.master');
 });  

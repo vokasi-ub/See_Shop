@@ -64,7 +64,7 @@ class BarangController extends Controller
             'updated_at' => $request ->update_at
         ]);
         // alihkan halaman ke halaman pegawai
-        return redirect('/kategori')->with('message', 'Data Berhasil Di Tambahkan');
+        return redirect('/data_barang')->with('message', 'Data Berhasil Di Tambahkan');
       
 
         

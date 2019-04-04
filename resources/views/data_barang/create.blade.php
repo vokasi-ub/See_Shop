@@ -18,9 +18,17 @@
    
 	<form action="/see_shop/public/data_barang/store" method="post">
     {{csrf_field()}}
+    <div class="form-group {{ $errors->has('id_barang') ? 'has-error' : '' }}">
+        <label for="id_barang" class="control-label">ID Barang</label>
+        <input type="text" class="form-control" name="id_barang" placeholder="Masukkan ID Barang" >
+        @if ($errors->has('id_barang'))
+            <span class="help-block">{{ $errors->first('id_barang') }}</span>
+        @endif
+
+    </div>
     <div class="form-group {{ $errors->has('nama_barang') ? 'has-error' : '' }}">
-        <label for="nama_barang" class="control-label">Nama Kategori</label>
-        <input type="text" class="form-control" name="nama_barang" placeholder="Nama Barang">
+        <label for="nama_barang" class="control-label">Nama Barang</label>
+        <input type="text" class="form-control" name="nama_barang" placeholder="Masukkan Nama Barang">
         @if ($errors->has('nama_barang'))
             <span class="help-block">{{ $errors->first('nama_barang') }}</span>
         @endif
@@ -34,7 +42,7 @@
     </div>
     <div class="form-group {{ $errors->has('harga') ? 'has-error' : '' }}">
         <label for="harga" class="control-label">Harga</label>
-        <input type="text" class="form-control" name="harga" placeholder="Harga Barang">
+        <input type="text" class="form-control" name="harga" placeholder="Masukkan Harga Barang">
         @if ($errors->has('harga'))
             <span class="help-block">{{ $errors->first('harga') }}</span>
         @endif
@@ -47,13 +55,7 @@
         @endif
     </div>
 
-    <div class="form-group {{ $errors->has('updated_at') ? 'has-error' : '' }}">
-        <label for="updated_at" class="control-label">Tanggal Update</label>
-        <input type="date" class="form-control" name="updated_at" placeholder="Tanggal Update">
-        @if ($errors->has('updated_at'))
-            <span class="help-block">{{ $errors->first('updated_at') }}</span>
-        @endif
-    </div>
+    
 
     <div class="form-group">
         <input type="submit" class="btn btn-info" value="Simpan Data">
