@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class FrontController extends Controller
+class KategoriController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class FrontController extends Controller
      */
     public function index()
     {
-        return view('front.index');
+        return view('kategori.kategori');
     }
 
     /**

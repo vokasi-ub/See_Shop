@@ -18,6 +18,12 @@ Route::get('/', function () {
 Route::resource('data_barang', 'BarangController');
 
 Route::resource('front', 'FrontController');
+Route::resource('kategori', 'KategoriController');
+Route::resource('login', 'LoginController');
+Route::resource('kontak', 'KontakController');
+
+    
+
 
 Route::get('layouts',function(){
     return view('layouts.master');
@@ -28,6 +34,7 @@ Route::get('dashboard',function(){
 Route::get('layouts',function(){
     return view('dashboard');
 }); 
+
 
 Route::resource('data_barang', 'BarangController');
 
@@ -42,6 +49,10 @@ Route::get('/data_barang/edit/{id}','BarangController@edit');
 Route::post('/data_barang/update','BarangController@update');
 
 Route::get('/data_barang/delete/{id}','BarangController@delete');
+
+
+
+
 
 
 
