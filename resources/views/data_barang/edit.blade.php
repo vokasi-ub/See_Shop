@@ -33,7 +33,7 @@
 
     <div class="form-group {{ $errors->has('created_at') ? 'has-error' : '' }}">
         <label for="created_at" class="control-label">Tanggal Input</label>
-        <input type="date" class="form-control" name="created_at" value="{{$data_barang->created_at}}">
+        <input type="text" class="form-control" name="created_at" value="{{$data_barang->created_at}}">
         @if ($errors->has('created_at'))
             <span class="help-block">{{ $errors->first('created_at') }}</span>
         @endif

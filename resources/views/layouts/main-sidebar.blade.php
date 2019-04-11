@@ -24,13 +24,8 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
+      <li class="header"></li>
+        <li><a href="/see_shop/public/front"><i class="fa fa-circle-o text-red"></i> <span>Going to Front End</span></a></li>
           <ul class="treeview-menu">
           
             <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Profil Admin</a></li>
@@ -44,8 +39,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="/see_shop/public/data_barang"><i class="fa fa-circle-o"></i> Data Barang dan Penjual</a></li>
-            <li><a href="data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+            <li ><a href="/see_shop/public/data_barang"><i class="fa fa-circle-o"></i> Data Barang </a></li>
+            <li><a href="/see_shop/public/kategori_barang"><i class="fa fa-circle-o"></i> Data Kategori</a></li>
           </ul>
         </li>
 

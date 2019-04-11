@@ -419,16 +419,18 @@
                       <th>Gambar</th>
                       <th>Harga</th>
                       <th>Tanggal Input</th>
-                      <th>Tanggal Update </th>
-                  </tr>
-                    @foreach($barangs as $data_barang)
-                  <tr>
-                    <td>{{$data_barang->id_barang}}</td>
-                    <td>{{$data_barang->nama_barang}} </td>
-                    <td><img src="{{ URL::to('/')}}/images/{{ $data_barang->gambar }}" class="img-tumbnail" width="100" /></td>
-                    <td>{{$data_barang->harga}}</td>
-                    <td>{{$data_barang->created_at}}</td>
-                    <td>{{$data_barang->updated_at}}</td>
+                      <th>Tanggal Update </th></tr>
+                    @foreach($kategori_barang as $kategori_barangs)
+                
+            
+                <tr>
+                    <td> {{$kategori_barangs->id_barang}}</td>
+                    <td>{{$kategori_barangs->nama_barang}} </td>
+                    <td>{{$kategori_barangs->gambar}}</td>
+                    <td>{{$kategori_barangs->harga}}</td>
+                    <td>{{$kategori_barangs->created_at}}</td>
+                    <td>{{$kategori_barangs->updated_at}}</td>
+
                     <td>
                    
                     <a href="./data_barang/edit/{{ $data_barang->id_barang }}" class="btn btn-primary">Edit</a>

@@ -324,8 +324,13 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="header"></li>
-        <li><a href="/see_shop/public/data_lengkap"><i class="fa fa-circle-o text-red"></i> <span>Data Lengkap</span></a></li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
           <ul class="treeview-menu">
           
             <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Profil Admin</a></li>
@@ -342,8 +347,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="/see_shop/public/data_barang"><i class="fa fa-circle-o"></i> Data Barang </a></li>
-            <li><a href="/see_shop/public/kategori_barang"><i class="fa fa-circle-o"></i> Data Kategori</a></li>
+            <li><a href="/see_shop/public/data_barang"><i class="fa fa-circle-o"></i> Data Barang </a></li>
+            <li class="active"><a href="/see_shop/public/kategori_barang"><i class="fa fa-circle-o"></i> Data Kategori </a></li>
           </ul>
         </li>
 
@@ -394,7 +399,7 @@
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Responsive Hover Table</h3><br>
-              <a href="/see_shop/public/data_barang/create" class="btn btn-primary">Tambah Data</a>
+              <a href="/see_shop/public/kategori_barang/create" class="btn btn-primary">Tambah Data</a>
 
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -414,26 +419,24 @@
               <table class="table table-hover">
 
                   <tr>
-                      <th>ID Barang</th>
-                      <th>Nama Barang</th>
-                      <th>Gambar</th>
-                      <th>Harga</th>
+                      <th>ID Kategori</th>
+                      <th>Jenis Barang</th>
                       <th>Tanggal Input</th>
-                      <th>Tanggal Update </th>
-                  </tr>
-                    @foreach($barangs as $data_barang)
-                  <tr>
-                    <td>{{$data_barang->id_barang}}</td>
-                    <td>{{$data_barang->nama_barang}} </td>
-                    <td><img src="{{ URL::to('/')}}/images/{{ $data_barang->gambar }}" class="img-tumbnail" width="100" /></td>
-                    <td>{{$data_barang->harga}}</td>
-                    <td>{{$data_barang->created_at}}</td>
-                    <td>{{$data_barang->updated_at}}</td>
+                      <th>Tanggal Update </th></tr>
+                    @foreach($kategori_barangs as $kategori_barang)
+                
+            
+                <tr>
+                    <td>{{$kategori_barang->id_kategori_barang}}</td>
+                    <td>{{$kategori_barang->jenis_barang}} </td>
+                    <td>{{$kategori_barang->created_at}}</td>
+                    <td>{{$kategori_barang->updated_at}}</td>
+
                     <td>
                    
-                    <a href="./data_barang/edit/{{ $data_barang->id_barang }}" class="btn btn-primary">Edit</a>
-                    |
-                    	<a href="./data_barang/delete/{{ $data_barang->id_barang }}" class="btn btn-primary">Hapus</a>
+                    <a href="./kategori_barang/edit/{{ $kategori_barang->id_kategori_barang }}" class="btn btn-primary">Edit</a>
+		                |
+	                <a href="./kategori_barang/delete/{{ $kategori_barang->id_kategori_barang }}" class="btn btn-primary">Hapus</a>
               	</td>
                     @endforeach
                </tr>

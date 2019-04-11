@@ -16,7 +16,7 @@
 
     
    
-	<form action="/see_shop/public/data_barang/store" method="post">
+	<form action="/see_shop/public/data_barang/store"  enctype="multipart/form-data" method="post">
     {{csrf_field()}}
     <div class="form-group {{ $errors->has('id_barang') ? 'has-error' : '' }}">
         <label for="id_barang" class="control-label">ID Barang</label>

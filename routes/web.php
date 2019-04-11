@@ -12,10 +12,11 @@
 */
 
 Route::get('/', function () {
-    return ('welcome');
+    return view ('front.index');
 });
 
 Route::resource('data_barang', 'BarangController');
+Route::resource('kategori_barang', 'KategoriBarangController');
 
 Route::resource('front', 'FrontController');
 Route::resource('kategori', 'KategoriController');
@@ -37,18 +38,22 @@ Route::get('layouts',function(){
 
 
 Route::resource('data_barang', 'BarangController');
+Route::resource('data_lengkap', 'DataLengkapController');
 
 Route::get('search', 'BarangController@search');
 
 Route::get('/data_barang/create','BarangController@create');
 
 Route::post('/data_barang/store','BarangController@store');
+Route::post('/kategori_barang/store','KategoriBarangController@store');
 
 Route::get('/data_barang/edit/{id}','BarangController@edit');
 
 Route::post('/data_barang/update','BarangController@update');
 
 Route::get('/data_barang/delete/{id}','BarangController@delete');
+Route::get('/kategori_barang/delete/{id}','KategoriBarangController@delete');
+Route::get('/kategori_barang/edit/{id}','KategoriBarangController@edit');
 
 
 
@@ -58,3 +63,8 @@ Route::get('/data_barang/delete/{id}','BarangController@delete');
 
 
 
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

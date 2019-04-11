@@ -55,14 +55,24 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        DB::table('barang')->insert([
-            'id_barang' => $request->id_barang,
-            'nama_barang' => $request->nama_barang,
-            'gambar' => $request->gambar,
-            'harga' => $request->harga,
-            'created_at' => $request ->created_at,
-            'updated_at' => $request ->update_at
-        ]);
+      $simpan= new \App\Barang;
+      $simpan->id_barang=$request->id_barang;
+      $simpan->nama_barang=$request->nama_barang;
+      $simpan->harga=$request->harga;
+      $simpan->created_at=$request->created_at;
+     
+      
+     
+      $gambar=$request->file('gambar');
+
+      $nama=rand().'.'.$gambar->getClientOriginalExtension();
+
+      $gambar->move(public_path('images'),$nama);
+
+      $simpan->gambar = $nama;
+      $simpan->save();
+
+        
         // alihkan halaman ke halaman pegawai
         return redirect('/data_barang')->with('message', 'Data Berhasil Di Tambahkan');
       
