@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Barang;
+use Illuminate\Support\Facades\DB;
 class FrontController extends Controller
 {
     /**
@@ -13,7 +14,8 @@ class FrontController extends Controller
      */
     public function index()
     {
-        return view('front.index');
+        $barangs = DB::table('barang')->paginate(5);
+        return view('front.barang',['barangs'=>$barangs]);
     }
 
     /**
@@ -21,6 +23,15 @@ class FrontController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    public function search(Request $request)
+    {
+        $search= $request->search;
+        $barangs=Barang::where('nama_barang','like',"%".$search."%")->paginate(); 
+       
+
+        return view('front.barang',compact('barangs'));     
+    } 
 
      
 

@@ -14,8 +14,8 @@ class CreateKategoriBarang extends Migration
     public function up()
     {
         Schema::create('kategori_barang', function (Blueprint $table) {
-            $table->String('id_kategori_barang',10);
-            $table->String('jenis_barang',25);
+            $table->bigIncrements('id');
+            $table->String('nama_kategori',25);
             $table->timestamps();
         });
     }

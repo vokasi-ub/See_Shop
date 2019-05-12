@@ -55,8 +55,8 @@ class KategoriBarangController extends Controller
     public function store(Request $request)
     {
         DB::table('kategori_barang')->insert([
-            'id_kategori_barang' => $request->id_kategori_barang,
-            'jenis_barang' => $request->jenis_barang,
+            'id_kategori_barang' => $request->id,
+            'nama_kategori' => $request->jenis_barang,
             'created_at' => $request ->created_at
             
         ]);

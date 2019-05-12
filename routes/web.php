@@ -14,16 +14,18 @@
 Route::get('/', function () {
     return view ('front.index');
 });
+Route::resource('front', 'FrontController');
+Route::resource('front.Transaksi', 'TransaksiController');
+Route::get('search-front', 'FrontController@search');
 
+Route::group(['middleware' => 'auth'], function(){
 Route::resource('data_barang', 'BarangController');
 Route::resource('kategori_barang', 'KategoriBarangController');
-
-Route::resource('front', 'FrontController');
 Route::resource('kategori', 'KategoriController');
 Route::resource('login', 'LoginController');
 Route::resource('kontak', 'KontakController');
 
-    
+
 
 
 Route::get('layouts',function(){
@@ -42,6 +44,9 @@ Route::resource('data_lengkap', 'DataLengkapController');
 
 Route::get('search', 'BarangController@search');
 
+
+
+
 Route::get('/data_barang/create','BarangController@create');
 
 Route::post('/data_barang/store','BarangController@store');
@@ -56,7 +61,7 @@ Route::get('/kategori_barang/delete/{id}','KategoriBarangController@delete');
 Route::get('/kategori_barang/edit/{id}','KategoriBarangController@edit');
 
 
-
+});
 
 
 

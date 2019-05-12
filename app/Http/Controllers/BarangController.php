@@ -14,7 +14,7 @@ class BarangController extends Controller
      */
     public function index()
     {
-        $barangs = DB::table('barang')->get();
+        $barangs = DB::table('barang')->paginate(5);
         return view('data_barang.index',['barangs'=>$barangs]);    
         
     }
@@ -31,7 +31,7 @@ class BarangController extends Controller
     public function pagination(Request $request)
     {
         $pagination= $request->pagination;
-        $barangs=Barang::where('nama_barang','like',"%".$search."%")->pagination(); 
+        $barangs=Barang::where('nama_barang', 'like',"%".$search."%")->paginate(1); 
        
         $pagination->appends($request->only('keyword'));
         return view('data_barang.index',compact('barangs'));     
@@ -56,8 +56,10 @@ class BarangController extends Controller
     public function store(Request $request)
     {
       $simpan= new \App\Barang;
-      $simpan->id_barang=$request->id_barang;
       $simpan->nama_barang=$request->nama_barang;
+      $simpan->id_kategori_barang = $request->id_kategori_barang;
+      $simpan->kode_barang = $request->kode_barang;
+      $simpan->stok = $request->stok;
       $simpan->harga=$request->harga;
       $simpan->created_at=$request->created_at;
      
@@ -73,7 +75,7 @@ class BarangController extends Controller
       $simpan->save();
 
         
-        // alihkan halaman ke halaman pegawai
+        // alihkan halaman ke halaman barang
         return redirect('/data_barang')->with('message', 'Data Berhasil Di Tambahkan');
       
 
@@ -99,7 +101,7 @@ class BarangController extends Controller
      */
     public function edit($id)
     {
-        $barangs = DB::table('barang')->where('id_barang',$id)->get();
+        $barangs = DB::table('barang')->where('id',  $id)->get();
         return view('/data_barang/edit',['barangs' => $barangs]);
 
         
@@ -123,6 +125,9 @@ class BarangController extends Controller
 
         $barangs = Barang::find($id);
         $barangs->nama_barang = $request->get('nama_barang');
+        $barangs->id = $request->get('id');
+        $barangs->kode_barang = $request->get('kode_barang');
+        $barangs->stok = $request->get('stok');
         $barangs->gambar = $request->get('gambar');
         $barangs->harga = $request->get('harga');
         $barangs->created_at = $request->get('created_at');
@@ -139,7 +144,7 @@ class BarangController extends Controller
      */
     public function delete($id)
     {
-        DB::table('barang')->where('id_barang',$id)->delete();
+        DB::table('barang')->where('id',$id)->delete();
         return redirect('/data_barang')->with('message', 'Data berhasil dihapus!');
         
     }

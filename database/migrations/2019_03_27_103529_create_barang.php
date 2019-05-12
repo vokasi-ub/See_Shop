@@ -14,9 +14,13 @@ class CreateBarang extends Migration
     public function up()
     {
         Schema::create('barang', function (Blueprint $table) {
-            $table->String('id_barang');
-            $table->String('nama_barang',30);
-            $table->String('gambar',255);   
+            $table->bigIncrements('id');
+            $table->string('kode_barang',30);
+            $table->string('nama_barang',30);
+            $table->unsignedBigInteger('id_kategori_barang');
+            $table->foreign('id_kategori_barang')->references('id')->on('kategori_barang')->onDelete('cascade');
+            $table->string('gambar',255);
+            $table->Integer('stok');
             $table->Integer('harga');
             $table->timestamps();
         });
@@ -30,5 +34,6 @@ class CreateBarang extends Migration
     public function down()
     {
         Schema::dropIfExists('barang');
+        $table->dropForeign(['id_kategori_barang']);
     }
 }

@@ -5,9 +5,7 @@
 <section class="content-header">
       
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Simple</li>
+        
       </ol>
     </section>
 
@@ -18,14 +16,27 @@
    
 	<form action="/see_shop/public/data_barang/store"  enctype="multipart/form-data" method="post">
     {{csrf_field()}}
-    <div class="form-group {{ $errors->has('id_barang') ? 'has-error' : '' }}">
-        <label for="id_barang" class="control-label">ID Barang</label>
-        <input type="text" class="form-control" name="id_barang" placeholder="Masukkan ID Barang" >
-        @if ($errors->has('id_barang'))
-            <span class="help-block">{{ $errors->first('id_barang') }}</span>
+    
+
+    <div class="form-group {{ $errors->has('kode_barang') ? 'has-error' : '' }}">
+        <label for="kode_barang" class="control-label">Kode Barang</label>
+        <input type="text" class="form-control" name="kode_barang" placeholder="Masukkan Kode Barang" >
+        @if ($errors->has('kode_barang'))
+            <span class="help-block">{{ $errors->first('kode_barang') }}</span>
         @endif
 
     </div>
+
+    <div class="form-group {{ $errors->has('id_kategori_barang') ? 'has-error' : '' }}">
+        <label for="id_kategori_barang" class="control-label">ID Kategori</label>
+        <input type="text" class="form-control" name="id_kategori_barang" placeholder="Masukkan ID Kategori" >
+        @if ($errors->has('id_kategori_barang'))
+            <span class="help-block">{{ $errors->first('id') }}</span>
+        @endif
+
+    </div>
+
+
     <div class="form-group {{ $errors->has('nama_barang') ? 'has-error' : '' }}">
         <label for="nama_barang" class="control-label">Nama Barang</label>
         <input type="text" class="form-control" name="nama_barang" placeholder="Masukkan Nama Barang">
@@ -33,6 +44,15 @@
             <span class="help-block">{{ $errors->first('nama_barang') }}</span>
         @endif
     </div>
+
+    <div class="form-group {{ $errors->has('stok') ? 'has-error' : '' }}">
+        <label for="stok" class="control-label">Stok Tersedia</label>
+        <input type="text" class="form-control" name="stok" placeholder="Masukkan Nama Barang">
+        @if ($errors->has('stok'))
+            <span class="help-block">{{ $errors->first('stok') }}</span>
+        @endif
+    </div>
+
     <div class="form-group {{ $errors->has('gambar') ? 'has-error' : '' }}">
         <label for="gambar" class="control-label">Gambar</label>
         <input type="file" class="form-control" name="gambar" placeholder="Gambar">
